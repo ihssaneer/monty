@@ -36,8 +36,30 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct file_s - fh
+ * @num: the opcode
+ * @file: function to handle the opcode
+ * @array: ijfqsk
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO
+ */
+typedef struct file_s
+{
+        int num;
+        FILE *file;
+        char **array;
+        char **stack;
+} file_t;
+extern file_t _file;
 
-void space_remover(char *str);
-void push(node_t **stack, int value);
+void arrage_line(char *line);
+void remove_space(char *line);
+int check_number(void);
+void check_args(int ac,char **av);
+void free_array(void);
+void free_stack(void);
+void execute_opc(unsigned int L);
 
 #endif /*MONTY_H*/
