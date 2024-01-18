@@ -38,5 +38,6 @@ typedef struct instruction_s
 } instruction_t;
 
 void space_remover(char *str);
+void push(node_t **stack, int value);
 
 #endif /*MONTY_H*/
