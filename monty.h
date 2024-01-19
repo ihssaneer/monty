@@ -62,7 +62,7 @@ void free_array(void);
 void free_stack(void);
 void execute_opc(unsigned int L);
 
-void pall(stack_t **stack);
+void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int value);
 

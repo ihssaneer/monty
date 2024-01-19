@@ -7,22 +7,21 @@
  * Return: void.
 */
 
-void push(stack_t **stack, unsigned int value)
+void _push(stack_t **stack, unsigned int value)
 {
     /* Node declaration section: */
-    
-    stack_t *head = (stack_t *) malloc(sizeof(stack_t));
-    if (*stack == NULL)
-    {
-        printf("error stack is nul\n");
-        exite (EXIT_FAILURE);
-    }
-    head->n = value;
-    head->next = *stack;
+    stack_t *new_node = (stack_t *) malloc(sizeof(stack_t));
+
+    if (stack == NULL)
+        return;
+
+    /* Stack update qures*/
+    new_node->n = value;
+    new_node->next = *stack;
     if (*stack != NULL)
     {
-        (*stack)->prev = head;
+        (*stack)->prev = new_node;
     }
-    head->prev = NULL;
-    *stack = head;
+    new_node->prev = NULL;
+    *stack = new_node;
 }
