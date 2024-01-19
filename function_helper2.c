@@ -11,6 +11,7 @@ void execute_opc(unsigned int L)
 	instruction_t op[] = {
 		{"push", _push},
 		{"pall", _pall},
+		{"pint", _pint},
 		{NULL, NULL}
 	};
 

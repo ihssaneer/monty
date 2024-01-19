@@ -95,14 +95,14 @@ int check_number(void)
  */
 void free_stack(stack_t **stack)
 {
-	stack_t *actuel = *stack;
-	stack_t *tmp;
+	node *actuel = stack;
 
 	while (actuel != NULL)
 	{
+		node *tmp;
 		tmp = actuel;
-		actuel = actuel->next;
+		actuel = actuel->suivant;
+		free(tmp->nom);
 		free(tmp);
 	}
-	*stack = NULL;
 }
