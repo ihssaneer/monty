@@ -15,6 +15,10 @@ void execute_opc(unsigned int L)
 		{"pop", pop_fun},
 		{"swap", swap_fun},
 		{"add", add_fun},
+		{"sub", sub_fun},
+		{"div", div_fun},
+		{"mul", mul_fun},
+		{"mod", mod_fun},
 		{NULL, NULL}
 	};
 

@@ -69,4 +69,8 @@ void pint_fun(stack_t **stack, unsigned int L);
 void pop_fun(stack_t **stack, unsigned int L);
 void swap_fun(stack_t **stack, unsigned int L);
 void add_fun(stack_t **stack, unsigned int L);
+void sub_fun(stack_t **stack, unsigned int L);
+void div_fun(stack_t **stack, unsigned int L);
+void mul_fun(stack_t **stack, unsigned int L);
+void mod_fun(stack_t **stack, unsigned int L);
 #endif /*MONTY_H*/
