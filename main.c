@@ -15,7 +15,7 @@ int main(int ac, char **av)
 	while (fgets(line, sizeof(line), _file.file) != NULL)
 	{
 		arrage_line(line);
-		if (_file.array)
+		if (_file.array[0])
 		{
 			if (strcmp(_file.array[0], "nop") == 0 || _file.array[0][0] == '#')
 			{
