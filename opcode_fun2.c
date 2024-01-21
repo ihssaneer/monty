@@ -48,12 +48,12 @@ void div_fun(stack_t **stack, unsigned int L)
 		fprintf(stderr, "L%d: can't div, stack too short\n", L);
 		exit(EXIT_FAILURE);
 	}
-	if ((*stack)->next->n == 0)
+	if ((*stack)->n == 0)
 	{
 		fprintf(stderr, "L%d: division by zero\n", L);
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = (*stack)->n / (*stack)->next->n;
+	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
 	*stack = (*stack)->next;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
@@ -68,7 +68,7 @@ void mul_fun(stack_t **stack, unsigned int L)
 {
 	if (!*stack || !(*stack)->next)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", L);
+		fprintf(stderr, "L%d: can't mul, stackk too short\n", L);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n *= (*stack)->n;
@@ -91,7 +91,7 @@ void mod_fun(stack_t **stack, unsigned int L)
 	}
 	if ((*stack)->n == 0)
 	{
-		fprintf(stderr, "L%d: division by zero\n", L);
+		fprintf(stderr, "L%d: division byy zero\n", L);
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n = (*stack)->next->n % (*stack)->n;

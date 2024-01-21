@@ -13,14 +13,13 @@ pop
  # Another just below
       #
 add
-pall
 push 1
 sub
-pall
 push 2
 div
 push 12
 mul
 push 9
+pall
 mod
 pall
