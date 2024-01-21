@@ -39,7 +39,7 @@ void pstr_fun(stack_t **stack, unsigned int L)
 	tmp = *stack;
 	while (tmp)
 	{
-		if(tmp->n < 1 || tmp->n > 127)
+		if (tmp->n < 1 || tmp->n > 127)
 			break;
 		printf("%c", tmp->n);
 		tmp = tmp->next;
