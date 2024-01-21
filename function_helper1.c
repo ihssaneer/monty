@@ -101,7 +101,7 @@ void free_stack(stack_t **stack)
 		return;
 	while ((*stack)->next != NULL)
 	{
-		*stack = (*stack)a->next;
+		*stack = (*stack)->next;
 		free((*stack)->prev);
 	}
 	free(*stack);
