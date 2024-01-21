@@ -6,6 +6,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -51,7 +52,7 @@ typedef struct file_s
 	int num;
 	FILE *file;
 	char **array;
-	stack_t **stack;
+	stack_t *stack;
 } file_t;
 extern file_t _file;
 
@@ -62,8 +63,10 @@ void check_args(int ac, char **av);
 void free_array(void);
 void free_stack(stack_t **stack);
 void execute_opc(unsigned int L);
-void _push(stack_t **stack, unsigned int L);
-void _pall(stack_t **stack, unsigned int L);
-void _pint(stack_t **stack, unsigned int L);
-
+void push_fun(stack_t **stack, unsigned int L);
+void pall_fun(stack_t **stack, unsigned int L);
+void pint_fun(stack_t **stack, unsigned int L);
+void pop_fun(stack_t **stack, unsigned int L);
+void swap_fun(stack_t **stack, unsigned int L);
+void add_fun(stack_t **stack, unsigned int L);
 #endif /*MONTY_H*/

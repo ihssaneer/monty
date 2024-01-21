@@ -24,10 +24,10 @@ int main(int ac, char **av)
 			}
 			if (strcmp(_file.array[0], "push") == 0)
 			{
-				if (!(_file.array[1] && check_number()))
+				if (!check_number())
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", L);
-					free_stack(_file.stack), free(_file.array);
+					free_stack(&_file.stack), free(_file.array), fclose(_file.file);
 					exit(EXIT_FAILURE);
 				}
 			}
@@ -36,6 +36,7 @@ int main(int ac, char **av)
 		}
 		L++;
 	}
+	free_stack(&_file.stack);
 	fclose(_file.file);
 	return (EXIT_SUCCESS);
 }

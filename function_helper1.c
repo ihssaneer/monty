@@ -44,6 +44,7 @@ void arrage_line(char *line)
 		if (!_file.array)
 		{
 			fprintf(stderr, "Error: malloc failed\n");
+			fclose(_file.file);
 			exit(EXIT_FAILURE);
 		}
 		token = strtok(line, " \t");
@@ -78,12 +79,13 @@ int check_number(void)
 {
 	int i = 0;
 
-	if (!_file.array[1])
+	if (!_file.array[1] || !strlen(_file.array[1])) /*à demander pourquoi*/
 		return (0);
 	while (_file.array[1][i] != '\0')
 	{
-		if (_file.array[1][i] < 48 && _file.array[1][i] > 57)
+		if (!isdigit(_file.array[1][i]))
 			return (0);
+		i++;
 	}
 	_file.num = atoi(_file.array[1]);
 	return (1);
@@ -92,17 +94,16 @@ int check_number(void)
  * free_stack - fuction that frees our stack
  * @stack: first argument
  * Return: ,gj
- */
+*/
 void free_stack(stack_t **stack)
 {
-	node *actuel = stack;
-
-	while (actuel != NULL)
+	if (!*stack)
+		return;
+	while ((*stack)->next != NULL)
 	{
-		node *tmp;
-		tmp = actuel;
-		actuel = actuel->suivant;
-		free(tmp->nom);
-		free(tmp);
+		*stack = (*stack)a->next;
+		free((*stack)->prev);
 	}
+	free(*stack);
+	*stack = NULL;
 }
