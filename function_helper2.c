@@ -19,6 +19,8 @@ void execute_opc(unsigned int L)
 		{"div", div_fun},
 		{"mul", mul_fun},
 		{"mod", mod_fun},
+		{"pchar", pchar_fun},
+		{"pstr", pstr_fun},
 		{NULL, NULL}
 	};
 
