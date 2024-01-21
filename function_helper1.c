@@ -82,6 +82,11 @@ int check_number(void)
 		return (0);
 	while (_file.array[1][i] != '\0')
 	{
+		if (_file.array[1][i] == '-')
+		{
+			i++;
+			continue;
+		}
 		if (!isdigit(_file.array[1][i]))
 			return (0);
 		i++;
