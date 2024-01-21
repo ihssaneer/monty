@@ -1,85 +1,42 @@
 #include "monty.h"
-
+file_t _file;
 /**
- * main - jhf
- * Return: jhfi
-*/
-int main(int ac, char** av)
-{
-	FILE * fd = 0;
-	char line[255];
-	char *token = NULL, *str = NULL, **opcode == NULL;
-	unsigned int line_number = 0;
-
-	if (ac == 2)
-	{
-		fd = fopen(av[1], "r");
-		if (fd == NULL)
-		{
-			fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-			exit(EXIT_FAILURE);
-		}
-		while ((str = fgets(line, sizeof(line), fd)) != NULL)
-		{
-			line_number++;
-			str[strlen(str) - 1] = '\0';
-			space_remover(str);
-			if (strlen(str) != 0)
-			{
-				token = strtok(line, " ");
-				opcode[0] = token;
-				token = strtok(NULL, " ");
-				check_instruction(line, token, line_number);
-			}
-		}
-		fclose(fd);
-	}
-	else
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	return (0);
-}
-/**
- * space_remover - shs
- * @str: ijq
- * Return: void.
-*/
-void space_remover(char *str)
-{
-	int i = 0, j = 0;
-
-	while ((*(str + i) == ' ' || *(str + i) == '\t') && *(str + i))
-		i++;
-	for (; *(str + i) && *(str + j); i++, j++)
-		*(str + j) = *(str + i);
-	*(str + j) = '\0';
-}
-/**
- * check_instruction - shs
- * @line: ijq
- * @toke: jhdp
- * @line_number: kjd
- * Return: 1 on success and -1 on failure.
+ * main - Enter points
+ * @ac: the number of args
+ * @av: an array of string
+ * Return: 1, 0
  */
-int check_instruction(char *line)
+int main(int ac, char **av)
 {
-	int i = 0;
-	char *opc1 = "push", *opc2 = "pall";
-	instruction_t instr_list[] = {
-		{opc1, push_int(stack_t **stack, unsigned int line_number)},
-		{opc2, print_all(stack_t **stack, unsigned int line_number)},
-		{NULL, NULL}};
+	char line[151];
+	unsigned int L = 1;
 
-		while (instr_list[i].opcode != NULL)
+	check_args(ac, av);
+	while (fgets(line, sizeof(line), _file.file) != NULL)
+	{
+		arrage_line(line);
+		if (_file.array[0])
 		{
-			v = strcmp(line, instr_list[i].opcode)
-			if (v == 0)
+			if (strcmp(_file.array[0], "nop") == 0 || _file.array[0][0] == '#')
 			{
-				instr_list[i].f();
-				break;
+				free(_file.array);
+				continue;
 			}
-			i++;
+			if (strcmp(_file.array[0], "push") == 0)
+			{
+				if (!check_number())
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", L);
+					free_stack(&_file.stack), free(_file.array), fclose(_file.file);
+					exit(EXIT_FAILURE);
+				}
+			}
+			execute_opc(L);
+			free(_file.array);
 		}
+		L++;
+	}
+	free_stack(&_file.stack);
+	fclose(_file.file);
+	return (EXIT_SUCCESS);
 }
