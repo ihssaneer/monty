@@ -14,10 +14,10 @@ void pchar_fun(stack_t **stack, unsigned int L)
 	}
 	if ((*stack)->n >= 0 && (*stack)->n <= 127)
 	{
-			printf("%c\n", (*stack)->n);
-			return;
+		printf("%c\n", (*stack)->n);
+		return;
 	}
-	fprintf(stderr, "%d: can't pchar, value out of range\n", L);
+	fprintf(stderr, "L%d: can't pchar, value out of range\n", L);
 	exit(EXIT_FAILURE);
 }
 /**
@@ -37,12 +37,12 @@ void pstr_fun(stack_t **stack, unsigned int L)
 		return;
 	}
 	tmp = *stack;
-	while (tmp->next)
+	while (tmp)
 	{
-		if (tmp->n <= 0 && tmp->n > 127)
-			return;
+		if(tmp->n < 1 || tmp->n > 127)
+			break;
 		printf("%c", tmp->n);
 		tmp = tmp->next;
 	}
-	printf("%c\n", tmp->n);
+	printf("\n");
 }
