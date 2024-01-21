@@ -39,3 +39,4 @@ void execute_opc(unsigned int L)
 	fclose(_file.file);
 	exit(EXIT_FAILURE);
 }
+
