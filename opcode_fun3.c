@@ -46,3 +46,26 @@ void pstr_fun(stack_t **stack, unsigned int L)
 	}
 	printf("\n");
 }
+/**
+ * rotl_fun - function
+ * @stack: kjdw
+ * @L: kmdfwfm
+ * Return: void
+*/
+void rotl_fun(stack_t **stack, unsigned int L)
+{
+	int n = 0;
+	stack_t *tmp = NULL;
+	(void)L;
+
+	if (!*stack || !(*stack)->next)
+		return;
+	tmp = *stack;
+	n = (*stack)->n;
+	while (tmp->next)
+	{
+		tmp->n = tmp->next->n;
+		tmp = tmp->next;
+	}
+	tmp->n = n;
+}
