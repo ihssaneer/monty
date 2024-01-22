@@ -21,6 +21,7 @@ void execute_opc(unsigned int L)
 		{"mod", mod_fun},
 		{"pchar", pchar_fun},
 		{"pstr", pstr_fun},
+		{"rotl", rotl_fun},
 		{NULL, NULL}
 	};
 
