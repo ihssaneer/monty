@@ -76,5 +76,6 @@ void mod_fun(stack_t **stack, unsigned int L);
 void pchar_fun(stack_t **stack, unsigned int L);
 void pstr_fun(stack_t **stack, unsigned int L);
 void rotl_fun(stack_t **stack, unsigned int L);
+void rotr_fun(stack_t **stack, unsigned int L);
 
 #endif /*MONTY_H*/

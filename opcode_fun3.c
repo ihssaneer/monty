@@ -9,7 +9,7 @@ void pchar_fun(stack_t **stack, unsigned int L)
 {
 	if (*stack == NULL)
 	{
-		fprintf(stderr, "%d: can't pchar, stack empty\n", L);
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", L);
 		exit(EXIT_FAILURE);
 	}
 	if ((*stack)->n >= 0 && (*stack)->n <= 127)
